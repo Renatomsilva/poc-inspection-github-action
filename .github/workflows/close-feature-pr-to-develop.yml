@@ -35,5 +35,5 @@ jobs:
         run: |
           content=`cat ${{ matrix.paths }}`
           echo "::set-output name=file::$content"
-        run: |
+      - run: |
           echo "${{steps.output-content.outputs.file}}"          
