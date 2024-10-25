@@ -26,12 +26,12 @@ jobs:
         paths: ${{ fromJson(needs.list-files.outputs.paths) }}
     runs-on: ubuntu-latest
     steps:
-      - name: Matrix
-        run: |
-          echo ${{ matrix }}    
       - name: Output results
         run: |
           echo ${{ matrix.paths }}           
-      - name: Print
+      # - name: Print
+      #   run: |
+      #     echo ${{ needs.list-files.outputs.paths }}       
+      - name: Content
         run: |
-          echo ${{ needs.list-files.outputs.paths }}                      
+          cat ${{ matrix.paths }}
