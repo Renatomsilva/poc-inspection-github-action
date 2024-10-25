@@ -18,7 +18,7 @@ jobs:
           repo: ${{ github.repository }}
           ref: ${{ github.ref }}
           path: "."
-          ext: ".yml"
+          ext: ".java"
   Test:
     needs: list-files
     strategy:
