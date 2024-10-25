@@ -31,4 +31,4 @@ jobs:
           echo ${{ matrix.paths }}           
       - name: Print
         run: |
-          echo ${{ fromJson(needs.list-files.outputs.paths) }}                      
+          echo ${{ needs.list-files.outputs.paths }}                      
