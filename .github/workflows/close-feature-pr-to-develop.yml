@@ -27,11 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output results
+        id: output-results
         run: |
-          echo ${{ matrix.paths }}           
-      # - name: Print
-      #   run: |
-      #     echo ${{ needs.list-files.outputs.paths }}       
+          echo ${{ matrix.paths }}            
       - name: Content
+        id: output-content
         run: |
-          cat ${{ matrix.paths }}
+          content=`cat ${{ matrix.paths }}`
+          echo "::set-output name=file::$content"
+        run: |
+          echo "${{steps.output-content.outputs.file}}"          
