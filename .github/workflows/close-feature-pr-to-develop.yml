@@ -21,14 +21,8 @@ jobs:
           ext: ".java"
   Test:
     needs: list-files
-    strategy:
-      matrix:
-        paths: ${{ fromJson(needs.list-files.outputs.paths) }}
     runs-on: ubuntu-latest
-    steps:
-      - name: Output results
-        run: |
-          echo ${{ matrix.paths }}           
+    steps:      
       - name: Print
         run: |
           echo ${{ needs.list-files.outputs.paths }}                      
