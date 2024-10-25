@@ -28,8 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repo: ${{ github.repository }}
-          ref: ${{ github.ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Output results
         id: output-results
         run: |
