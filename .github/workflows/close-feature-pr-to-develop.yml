@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-	        ref: ${{ github.ref }}
+	        ref: ${{ github.head_ref || github.ref_name }} 
       - name: Output results
         id: output-results
         run: |
