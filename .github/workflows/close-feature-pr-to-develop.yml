@@ -26,9 +26,9 @@ jobs:
         paths: ${{ fromJson(needs.list-files.outputs.paths) }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@master
         with:
-	        ref: ${{ github.head_ref || github.ref_name }} 
+	        ref:  ${{ github.ref }}
       - name: Output results
         id: output-results
         run: |
