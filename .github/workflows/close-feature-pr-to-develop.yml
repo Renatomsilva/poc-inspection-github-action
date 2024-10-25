@@ -28,4 +28,11 @@ jobs:
     steps:
       - name: Output results
         run: |
-          echo ${{ matrix.paths }}          
+          echo ${{ matrix.paths }}                    
+  Print:
+    needs: list-files
+    steps:
+      - name: Output results
+        run: |
+          echo ${{ fromJson(needs.list-files.outputs.paths) }}   
+
