@@ -30,8 +30,6 @@ jobs:
         with:
           repo: ${{ github.repository }}
           ref: ${{ github.ref }}
-          path: "."
-          ext: ".java"
       - name: Output results
         id: output-results
         run: |
