@@ -36,7 +36,7 @@ jobs:
       - name: Content
         id: output-content
         run: |
-          JSON=$(cat ${{ matrix.paths }} )
-          echo "${JSON//'%'/'%25'}"
+          FILE=$(cat ${{ matrix.paths }} )
+          echo "${FILE//'%'/'%25'}"
       # - run: |
       #     echo "${{steps.output-content.outputs.file}}"          
