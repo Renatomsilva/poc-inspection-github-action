@@ -29,14 +29,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: Output results
-        id: output-results
-        run: |
-          echo ${{ matrix.paths }}            
+      # - name: Output results
+      #   id: output-results
+      #   run: |
+      #     echo ${{ matrix.paths }}            
       - name: Content
         id: output-content
         run: |
           JSON=$(cat ${{ matrix.paths }} )
           echo "::set-output name=matrix::${JSON//'%'/'%25'}"
-      - run: |
-          echo "${{steps.output-content.outputs.file}}"          
+      # - run: |
+      #     echo "${{steps.output-content.outputs.file}}"          
