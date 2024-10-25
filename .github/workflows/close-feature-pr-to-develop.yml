@@ -7,14 +7,14 @@ on:
       - 'feature/**'
 jobs:
   identify-changed-files:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      runs-on: ubuntu-latest
 
-      - name: Run which-files-changed
-        uses: jitterbit/get-changed-files@v1
-      - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done          
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Run which-files-changed
+          uses: BuddhikaGeasman/which-files-changed@v1
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            pr-comment: 'true' # or 'false' to control where to add the changes
